@@ -3,6 +3,7 @@ package com.in28minutes.learnspringframework;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.in28minutes.learnspringframework.game.GameRunner;
 import com.in28minutes.learnspringframework.game.GamingConsole;
 import com.in28minutes.learnspringframework.game.PacmanGame;
 
@@ -11,8 +12,14 @@ public class GamingConfiguration {
 
 	@Bean
 	public GamingConsole game() {
-		var game = new PacmanGame();
+		var game = new PacmanGame(); // 팩맨게임클래스의 인스턴스 생성
 		return game; // 팩맨게임 클래스를 리턴
+	}
+
+	@Bean
+	public GameRunner gameRunner(GamingConsole game) { // 게임러너라는 이름의 빈을 생성, 게임콘솔 타입을 매개변수로 받음
+		var gameRunner = new GameRunner(game); // 게임콘솔 인스턴스를 사용해서 게임러너 클래스의 새로운 인스턴스를 생성
+		return gameRunner;
 	}
 
 //	var game = new PacmanGame(); // 오브젝트 생성

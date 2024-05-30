@@ -2,6 +2,7 @@ package com.in28minutes.learnspringframework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.in28minutes.learnspringframework.game.GameRunner;
 import com.in28minutes.learnspringframework.game.GamingConsole;
 
 public class App03GamingSpringBeans {
@@ -9,7 +10,8 @@ public class App03GamingSpringBeans {
 	public static void main(String[] args) {
 		try (var context = new AnnotationConfigApplicationContext(GamingConfiguration.class)) {
 			// 스프링 컨텍스트를 만듬
-			context.getBean(GamingConsole.class).up(); // 게이밍 콘솔의 팩맨게임클래스의 up 메소드를 가져옴
+			context.getBean(GamingConsole.class).up(); // 스프링 컨텍스트에서 GamingConsole 타입의 빈을 가져와서 up() 메서드를 호출함
+			context.getBean(GameRunner.class).run(); // 스프링 컨텍스트에서 GameRunner 타입의 빈을 가져와서 run() 메서드를 호출함
 		}
 //		var game = new PacmanGame(); // 오브젝트 생성
 //		// var game = new MarioGame();	
