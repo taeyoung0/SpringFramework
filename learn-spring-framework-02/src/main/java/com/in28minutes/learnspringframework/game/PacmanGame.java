@@ -1,5 +1,8 @@
 package com.in28minutes.learnspringframework.game;
 
+import org.springframework.stereotype.Component;
+
+@Component // 스프링이 특정 클래스의 인스턴스를 만들게 함
 public class PacmanGame implements GamingConsole {
 
 	public void up() {
