@@ -1,5 +1,10 @@
 package com.in28minutes.learnspringframework.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("SuperContraGameQualifier") // 와어어링 되는 후보 빈인 필드나 파라미터에 사용
 public class SuperContraGame implements GamingConsole {
 
 	public void up() {
