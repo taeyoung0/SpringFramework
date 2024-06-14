@@ -2,9 +2,10 @@ package com.in28minutes.learnspringframework.examples.c1;
 
 import java.util.Arrays;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+// @Component
+@Service // component 대신 사용
 public class BusinessCalculationService {
 
 	private DataService dataService; // DataService 의존성 주입을 위한 멤버 변수
