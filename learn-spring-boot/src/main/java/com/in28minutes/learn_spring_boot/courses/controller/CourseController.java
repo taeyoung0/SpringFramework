@@ -21,6 +21,6 @@ public class CourseController {
 	// http://localhost:8080/courses/1
 	@GetMapping("/courses/1") // url 요청
 	public Course getAllCoursesDetails() {
-		return new Course(1, "Learn Microservices", "in28minutes");
+		return new Course(1, "Learn Microservices 1", "in28minutes");
 	}
 }
