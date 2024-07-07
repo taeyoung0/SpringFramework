@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,13 +43,20 @@ public class CourseController {
 	}
 
 	@PostMapping("/courses") // 클라이언트가 데이터를 서버로 전송할때 사용, 새로운 사용자나 게시물을 생성할때 POST 사용
-	public void createCourse(@RequestBody Course course) { // HTTP 요청 본문에 포함된 Course 객체를 받아오는 메서드, 주로 Json 형식의 데이터를 자바
+	public void createCourse(@RequestBody Course course) { // HTTP 요청 본문에 포함된 Course 객체를 받아오는 메서드, @RequestBody는 주로 Json
+															// 형식의 데이터를 자바
 															// 객체로 변환하는데 사용
 		repository.save(course); // 받아온 Course 객체를 데이터베이스에 저장
 	}
 
 	@PutMapping("/courses/{id}")
-	public void updateCourse(@RequestBody Course course, @PathVariable long id) {
+	public void updateCourse(@RequestBody Course course, @PathVariable long id) { // @PathVariable은 URL 경로에 포함된 id값을
+																					// 매개변수로 전달 받는다
 		repository.save(course);
+	}
+
+	@DeleteMapping("/courses/{id}")
+	public void deleteCourse(@PathVariable long id) {
+		repository.deleteById(id);
 	}
 }
